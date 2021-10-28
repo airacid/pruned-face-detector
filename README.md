@@ -2,21 +2,21 @@
 
 This is pruned version of DSFD.
 
-# Setup
+## Setup
 - tensorflow==1.15
-# Training
-## Training Method
+## Training
+### Training Method
 > python pruned_train.py 
 
-## How to change learning rate
+### How to change learning rate
 * Open pruned_train_config.py, change lr_value and lr_decay to modify piecewise learning rate. 
 
-## Save ckpt file
+### Save ckpt file
 * Learned models are saved in a ckpt file. The storage path can be set by changing the model_path of the config file. It is recommended to change the storage path every time when you train with changed the hyperparameter.
 * The learned models are stored in the model_path path each epoch.
 * Model_path/optimized folder stores models with the lowest validation loss.
 
-## fine tuning pre-trained model
+### fine tuning pre-trained model
 * Let's prune unnecessary connections of the existing standard model by adding pruning loss.
 * Enter the ckpt path of the previously learned standard model in the pre-trained_model.
 e.g.) config.MODEL.pretrained_model='./face_detector/optimized/epoch_5_val_loss_3.ckpt'
@@ -25,7 +25,7 @@ e.g.) config.MODEL.pretrained_model='./face_detector/optimized/epoch_5_val_loss_
 config.TRAIN.lr_value_every_step = [0.001,0.005,0.0005]
 config.TRAIN.lr_decay_every_step = [1000,10000]
 
-## Modifying the pruning loss
+### Modifying the pruning loss
 * Open pruned_train_config.py
 1. Enter the path of the ckpt file of the standard model  in the pre-trained_model.
 2. Adjust the ratio of other loss by changing the pruned_alpha.
@@ -36,7 +36,7 @@ config.TRAIN.batch_size = 4
 config.TRAIN.pruned_alpha = 1.
 config.TRAIN.pruned_ratio = [0, 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.]
 
-# How to execute AP calculation code
+## How to execute AP calculation code
 
 1. Produce pb file. The pb file contains the graphs and parameters only necessary for inference.
 > tools/auto_freeze.py --ckpt_path= 'ckpt file path to test' output_path= 'folder to store the detector.pb file'
@@ -50,7 +50,7 @@ config.TRAIN.pruned_ratio = [0, 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 
 
 > python tools/ap_eval/evaluation.py --pred='Store results'
 
-# Code for MAC Calculation
+## Code for MAC Calculation
 Open mac_config.py to modify the path to the ckpt file path to test the path to the train_model.
 
 > python mac.py
