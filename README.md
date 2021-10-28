@@ -1,6 +1,6 @@
 # Pruned DSFD
 
-This is pruned version of DSFD.
+This is pruned version of [DSFD](https://arxiv.org/abs/1810.10220).
 
 ## Setup
 - tensorflow==1.15
