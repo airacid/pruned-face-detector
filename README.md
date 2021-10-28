@@ -2,6 +2,15 @@
 
 This is pruned version of [DSFD](https://arxiv.org/abs/1810.10220).
 
+## Introduction
+![image](https://user-images.githubusercontent.com/38776966/139170521-863d020c-1373-4650-8653-ec73ab1e060f.png)
+![image](https://user-images.githubusercontent.com/38776966/139170523-870f80ce-e625-40d9-a22d-b5ed36fa472e.png)
+
+
+- Reducing redundant parameters are not sensitive to the performance
+- Robust to various settings, can achieve good performance, can support both train from scratch and pre-trained model
+
+
 ## Setup
 - tensorflow==1.15
 ## Training
