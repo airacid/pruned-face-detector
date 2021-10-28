@@ -1,3 +1,7 @@
+# Pruned DSFD
+
+This is pruned version of DSFD.
+
 # Setup
 - tensorflow==1.15
 # Training
@@ -50,3 +54,7 @@ config.TRAIN.pruned_ratio = [0, 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 
 Open mac_config.py to modify the path to the ckpt file path to test the path to the train_model.
 
 > python mac.py
+
+### Reference
+This is modification of this repo:
+[DSFD-tensorflow](https://github.com/610265158/DSFD-tensorflow)
